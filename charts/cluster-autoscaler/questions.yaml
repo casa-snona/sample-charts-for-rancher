@@ -1,0 +1,5 @@
+questions:
+- variable: autoDiscovery.clusterName
+  type: string
+  required: true
+  label: Cluster Name
