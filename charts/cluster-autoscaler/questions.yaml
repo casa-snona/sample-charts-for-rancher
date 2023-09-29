@@ -3,3 +3,11 @@ questions:
   type: string
   required: true
   label: Cluster Name
+- variable: awsAccessKeyID
+  type: string
+  required: true
+  label: AWS access key ID
+- variable: awsSecretAccessKey
+  type: string
+  required: true
+  label: AWS secret access key
