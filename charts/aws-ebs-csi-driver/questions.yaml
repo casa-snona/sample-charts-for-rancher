@@ -1,9 +1,9 @@
 questions:
-- variable: awsAccessSecret.keyId
+- variable: awsAccessKeyID
   type: string
   required: true
   label: AWS access key ID
-- variable: awsAccessSecret.accessKey
+- variable: awsSecretAccessKey
   type: string
   required: true
   label: AWS secret access key
