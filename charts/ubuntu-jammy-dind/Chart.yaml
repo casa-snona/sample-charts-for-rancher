@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ubuntu-jammy-dind
-description: Python 開発環境：Ubuntu(Jammy)
+description: 開発環境（Docker 利用可）
 type: application
 version: 1.0.0
 # dependencies:

@@ -3,21 +3,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: training-desktop-{{ $user.port }}
+  name: ubuntu-jammy-dind-{{ $user.port }}
   labels:
-    app: training-desktop-{{ $user.port }}
+    app: ubuntu-jammy-dind-{{ $user.port }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: training-desktop-{{ $user.port }}
+      app: ubuntu-jammy-dind-{{ $user.port }}
   template:
     metadata:
       labels:
-        app: training-desktop-{{ $user.port }}
+        app: ubuntu-jammy-dind-{{ $user.port }}
     spec:
       containers:
-        - name: training-desktop-{{ $user.port }}
+        - name: ubuntu-jammy-dind-{{ $user.port }}
           image: kasmweb/ubuntu-jammy-dind:1.14.0
           imagePullPolicy: IfNotPresent
           env:

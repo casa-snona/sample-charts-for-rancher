@@ -1,0 +1,30 @@
+{{- range $user := .Values.users }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unityhub-{{ $user.port }}
+  labels:
+    app: unityhub-{{ $user.port }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unityhub-{{ $user.port }}
+  template:
+    metadata:
+      labels:
+        app: unityhub-{{ $user.port }}
+    spec:
+      containers:
+        - name: unityhub-{{ $user.port }}
+          image: kasmweb/unityhub:1.14.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: VNC_PW
+              value: {{ $user.password }}
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 6901
+{{- end }}

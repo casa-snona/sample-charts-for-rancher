@@ -1,9 +1,9 @@
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
-#   name: training-desktop-ingress
+#   name: ubuntu-jammy-dind-ingress
 #   annotations:
-#     nginx.org/rewrites: "serviceName=training-desktop-0-svc rewrite=/;serviceName=test-svc rewrite=/"
+#     nginx.org/rewrites: "serviceName=ubuntu-jammy-dind-0-svc rewrite=/;serviceName=test-svc rewrite=/"
 # spec:
 #   ingressClassName: nginx
 #   # tls:
@@ -18,7 +18,7 @@
 #             pathType: Prefix
 #             backend:
 #               service:
-#                 name: training-desktop-0-svc
+#                 name: ubuntu-jammy-dind-0-svc
 #                 port:
 #                   number: 443
 #           - path: /test
@@ -32,7 +32,7 @@
 #           # {{- range $index, $user := .Values.users }}
 #           #   backend:
 #           #     service:
-#           #       name: training-desktop-{{ $index }}-svc
+#           #       name: ubuntu-jammy-dind-{{ $index }}-svc
 #           #       port:
 #           #         number: 443
 #           # {{- end}}

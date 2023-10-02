@@ -1,0 +1,7 @@
+users:
+- port: 30000
+  password: password0
+- port: 30001
+  password: password1
+- port: 30002
+  password: password2

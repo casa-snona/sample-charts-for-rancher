@@ -1,0 +1,30 @@
+{{- range $user := .Values.users }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-dev-{{ $user.port }}
+  labels:
+    app: java-dev-{{ $user.port }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-dev-{{ $user.port }}
+  template:
+    metadata:
+      labels:
+        app: java-dev-{{ $user.port }}
+    spec:
+      containers:
+        - name: java-dev-{{ $user.port }}
+          image: kasmweb/java-dev:1.14.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: VNC_PW
+              value: {{ $user.password }}
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 6901
+{{- end }}

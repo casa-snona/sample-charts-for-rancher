@@ -1,0 +1,5 @@
+apiVersion: v2
+name: ubuntu-focal-java-dev
+description: Java 開発環境
+type: application
+version: 1.0.0

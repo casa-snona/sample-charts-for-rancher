@@ -3,10 +3,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ubuntu-jammy-dind-{{ $user.port }}-svc
+  name: java-dev-{{ $user.port }}-svc
 spec:
   selector:
-    app: ubuntu-jammy-dind-{{ $user.port }}
+    app: java-dev-{{ $user.port }}
   ports:
     - name: http
       protocol: TCP
