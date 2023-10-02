@@ -1,0 +1,37 @@
+{{- range $user := .Values.users }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: training-desktop-{{ $user.port }}
+  labels:
+    app: training-desktop-{{ $user.port }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: training-desktop-{{ $user.port }}
+  template:
+    metadata:
+      labels:
+        app: training-desktop-{{ $user.port }}
+    spec:
+      containers:
+        - name: training-desktop-{{ $user.port }}
+          image: kasmweb/ubuntu-jammy-dind:1.14.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: VNC_PW
+              value: {{ $user.password }}
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 6901
+      #     volumeMounts:
+      #       - name: persistent-storage-{{ $user.port }}
+      #         mountPath: /mnt/ebs
+      # volumes:
+      #   - name: persistent-storage-{{ $user.port }}
+      #     persistentVolumeClaim:
+      #       claimName: ebs-claim-{{ $user.port }}
+{{- end }}

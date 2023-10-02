@@ -1,0 +1,13 @@
+# {{- range $index, $user := .Values.users }}
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: ebs-claim-{{ $index }}
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: ebs-sc-{{ $index }}
+#   resources:
+#     requests:
+#       storage: 4Gi
+# {{- end }}

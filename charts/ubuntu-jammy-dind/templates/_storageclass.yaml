@@ -1,0 +1,8 @@
+# {{- range $index, $user := .Values.users }}
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: ebs-sc-{{ $index }}
+# provisioner: ebs.csi.aws.com
+# volumeBindingMode: WaitForFirstConsumer
+# {{- end }}

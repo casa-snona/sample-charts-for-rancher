@@ -1,0 +1,17 @@
+{{- range $user := .Values.users }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: training-desktop-{{ $user.port }}-svc
+spec:
+  selector:
+    app: training-desktop-{{ $user.port }}
+  ports:
+    - name: http
+      protocol: TCP
+      port: 443
+      targetPort: 6901
+      nodePort: {{ $user.port }} 
+  type: NodePort
+{{- end }}

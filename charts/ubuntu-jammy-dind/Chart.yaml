@@ -1,0 +1,9 @@
+apiVersion: v2
+name: desktop-env
+description: A トレーニング向けデスクトップ環境
+type: application
+version: 0.1.0
+# dependencies:
+#   - name: ingress-nginx
+#     version: "4.7.2"
+#     repository: "@ingress-nginx"
