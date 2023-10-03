@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: java-dev-{{ $user.port }}
-          image: kasmweb/java-dev:1.14.0
+          image: {{ $.Values.image }}
           imagePullPolicy: IfNotPresent
           env:
             - name: VNC_PW
