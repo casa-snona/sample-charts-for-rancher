@@ -27,4 +27,11 @@ spec:
             privileged: true
           ports:
             - containerPort: 6901
+          volumeMounts:
+            - name: home
+              mountPath: /home/kasm-user
+      volumes:
+        - name: home
+          persistentVolumeClaim:
+            claimName: home-{{ $user.port }}
 {{- end }}

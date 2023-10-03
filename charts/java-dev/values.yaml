@@ -1,3 +1,4 @@
+# image: 697986435408.dkr.ecr.ap-northeast-1.amazonaws.com/casareal/java-dev
 image: kasmweb/java-dev:1.14.0
 users:
 - port: 30000
