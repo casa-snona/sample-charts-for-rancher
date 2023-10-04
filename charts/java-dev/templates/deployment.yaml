@@ -27,11 +27,15 @@ spec:
             privileged: true
           ports:
             - containerPort: 6901
+          {{- if $.Values.pv.enable -}}
           volumeMounts:
             - name: home
               mountPath: /home/kasm-user
+          {{- end }}
+      {{- if $.Values.pv.enable -}}
       volumes:
         - name: home
           persistentVolumeClaim:
             claimName: home-{{ $user.port }}
+      {{- end }}
 {{- end }}
