@@ -4,6 +4,6 @@ questions:
   required: true
   label: AWS access key ID
 - variable: awsSecretAccessKey
-  type: secret
+  type: password
   required: true
   label: AWS secret access key
